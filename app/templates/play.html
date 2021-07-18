@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ title }} - Leaderboard</title>
+    </head>
+    <body>
+        <h1>Hello, {{ user.name }}!</h1>
+		<form name = "play" id="play" action="{{ url_for('calculate') }}" method="post">
+		{% for question in questions %}
+		{% set x =loop.index %}
+		<div class="container">
+			<strong>{{ question }}</strong>
+			<div class="form-check">
+			   <input class="form-check-input" type="radio" name="exampleRadios{{ x }}" id="exampleRadios{{ x }}" value="T" checked>
+			   <label class="form-check-label" for="exampleRadios{{ x }}">
+			   True
+			   </label>
+			</div>
+			<div class="form-check">
+			   <input class="form-check-input" type="radio" name="exampleRadios{{ x }}" id="exampleRadios{{ x }}" value="F">
+			   <label class="form-check-label" for="exampleRadios{{ x }}">
+			   False
+			   </label>
+			</div>
+		</div>
+		
+		{% endfor %}
+		<button type="submit" value="Submit">Submit</button>
+		</form>
+		
+			
+	</div>
+
+    </body>
+</html>

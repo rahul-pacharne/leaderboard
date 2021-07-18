@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ title }} - Leaderboard</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/user.css') }}">
+	
+    </head>
+    <body background="{{ url_for('static', filename='media/sky.jpg') }}" width=100%>
+        <h1>Hello, {{ user.name }}!</h1>
+	<th>
+	<td><strong>{% if score%}{{ score[0].max_score }}{% endif %}</strong></td>
+	<td><strong>Level 1</strong></td>
+	<td><strong>Bronze</strong></td>
+	<td><strong>Prelim</strong></td>
+	</th>
+	<a href="{{ url_for('play') }}">Play game</a>
+	{% if score%}{% set x = (score[0].max_score/250)*100  %}
+	<img src="{{ url_for('static', filename='media/parachute.jpg') }}"  style = "position: absolute;top: {{100 - x}}%;transform: translateY(-{{100 - x}}%);">
+	{% endif %}
+    </body>
+</html>
